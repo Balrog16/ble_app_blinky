@@ -74,7 +74,7 @@
 #define LEDBUTTON_LED BSP_BOARD_LED_2   /**< LED to be toggled with the help of the LED Button Service. */
 #define LEDBUTTON_BUTTON BSP_BUTTON_0   /**< Button that will trigger the notification event with the LED Button Service */
 
-#define DEVICE_NAME "Elsa_and_Ana" /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME "ADV 1M Phy" /**< Name of device. Will be included in the advertising data. */
 
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
@@ -255,9 +255,9 @@ static void advertising_init(void)
     memset(&adv_params, 0, sizeof(adv_params));
 
     adv_params.primary_phy = BLE_GAP_PHY_1MBPS;
-    adv_params.secondary_phy = BLE_GAP_PHY_CODED;
+  //  adv_params.secondary_phy = BLE_GAP_PHY_CODED;
     adv_params.duration = APP_ADV_DURATION;
-    adv_params.properties.type = BLE_GAP_ADV_TYPE_EXTENDED_CONNECTABLE_NONSCANNABLE_UNDIRECTED;
+    adv_params.properties.type = BLE_GAP_ADV_TYPE_CONNECTABLE_SCANNABLE_UNDIRECTED;
     adv_params.p_peer_addr = NULL;
     adv_params.filter_policy = BLE_GAP_ADV_FP_ANY;
     adv_params.interval = APP_ADV_INTERVAL;
