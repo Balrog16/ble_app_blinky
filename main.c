@@ -74,7 +74,7 @@
 #define LEDBUTTON_LED BSP_BOARD_LED_2   /**< LED to be toggled with the help of the LED Button Service. */
 #define LEDBUTTON_BUTTON BSP_BUTTON_0   /**< Button that will trigger the notification event with the LED Button Service */
 
-#define DEVICE_NAME "ADV 1M Phy" /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME "1M and Coded" /**< Name of device. Will be included in the advertising data. */
 
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
@@ -228,7 +228,7 @@ static void advertising_init(void)
     ble_advdata_t advdata;
     //ble_advdata_t srdata;
 
-    ble_uuid_t adv_uuids[] = {{LBS_UUID_SERVICE, m_lbs.uuid_type}};
+ //   ble_uuid_t adv_uuids[] = {{LBS_UUID_SERVICE, m_lbs.uuid_type}};
 
     // Build and set advertising data.
     memset(&advdata, 0, sizeof(advdata));
@@ -236,8 +236,8 @@ static void advertising_init(void)
     advdata.name_type = BLE_ADVDATA_FULL_NAME;
     advdata.include_appearance = true;
     advdata.flags = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-    advdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
-    advdata.uuids_complete.p_uuids = adv_uuids;
+ //   advdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
+  //  advdata.uuids_complete.p_uuids = adv_uuids;
 
     /*memset(&srdata, 0, sizeof(srdata));
     srdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
@@ -255,7 +255,7 @@ static void advertising_init(void)
     memset(&adv_params, 0, sizeof(adv_params));
 
     adv_params.primary_phy = BLE_GAP_PHY_1MBPS;
-  //  adv_params.secondary_phy = BLE_GAP_PHY_CODED;
+    adv_params.secondary_phy = BLE_GAP_PHY_CODED;
     adv_params.duration = APP_ADV_DURATION;
     adv_params.properties.type = BLE_GAP_ADV_TYPE_CONNECTABLE_SCANNABLE_UNDIRECTED;
     adv_params.p_peer_addr = NULL;
